@@ -6,16 +6,12 @@ import store from "../../redux/store";
 import { Router } from "../Router/Router";
 import {
   createStyles,
-  createTheme,
   Theme,
   ThemeProvider,
   withStyles,
   WithStyles,
 } from "@material-ui/core";
-
-const theme = createTheme({
-  //global theme elements like color etc
-});
+import { darkpondTheme } from "../../util/theme";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -32,7 +28,7 @@ const App: React.FC<Props> = ({ classes }) => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={darkpondTheme}>
           <div className={classes.wrapper}>
             <Route path="/" component={Router} />
           </div>
