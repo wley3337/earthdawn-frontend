@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { History } from 'history';
-import { useEffect } from 'react';
-import { call, takeEvery } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects';
 
 import { EARTHDAWN_URL } from '../../util/baseUrls';
 
@@ -60,7 +59,7 @@ export function* handleSubmitLogin(action: SubmitLoginFormAction) {
 
     // success
     if (res.status === 200) {
-      debugger;
+      console.log('logged in');
     } else {
       // status code
       console.error('error', { statusCode: res.status });
