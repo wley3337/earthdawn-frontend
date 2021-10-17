@@ -3,6 +3,7 @@ import { Card, Theme, Paper, Typography } from '@material-ui/core'
 import { createStyles, WithStyles, withStyles } from '@material-ui/styles'
 import { Talent } from '../../redux/Talents/types'
 import { fontNewsCycle, fontRaleway } from '../../util/theme'
+
 const styles = (theme: Theme) =>
     createStyles({
         card: {
