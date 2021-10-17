@@ -1,11 +1,10 @@
-import axios from 'axios';
-import { History } from 'history';
-import { useEffect } from 'react';
-import { call, takeEvery } from 'redux-saga/effects';
+import axios from "axios";
+import { History } from "history";
+import { takeEvery } from "redux-saga/effects";
 
-import { EARTHDAWN_URL } from '../../util/baseUrls';
+import { EARTHDAWN_URL } from "../../util/baseUrls";
 
-const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
+const SUBMIT_LOGIN = "SUBMIT_LOGIN";
 
 interface LoginForm {
   username: string;
@@ -30,7 +29,10 @@ interface ErrorResponse {
   message: string;
 }
 
-export const submitLogin = ({ loginForm, history }: SubmitLoginArgs): SubmitLoginFormAction => ({
+export const submitLogin = ({
+  loginForm,
+  history,
+}: SubmitLoginArgs): SubmitLoginFormAction => ({
   type: SUBMIT_LOGIN,
   payload: { loginForm, history },
 });
@@ -46,26 +48,30 @@ export function* handleSubmitLogin(action: SubmitLoginFormAction) {
   try {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     };
     const body = JSON.stringify({ username, password });
 
-    const res: { data: LoginResponse | ErrorResponse; status: number } = yield axios.post<LoginResponse>(
-      EARTHDAWN_URL + '/v1/login',
-      body,
-      config
-    );
+    const res: { data: LoginResponse | ErrorResponse; status: number } =
+      yield axios.post<LoginResponse>(
+        EARTHDAWN_URL + "/v1/login",
+        body,
+        config
+      );
 
     // success
     if (res.status === 200) {
-      debugger;
+      console.log("logged in");
+      // debugger;
     } else {
       // status code
-      console.error('error', { statusCode: res.status });
+      console.error("error", { statusCode: res.status });
     }
+    // Push user to root
+    history.push("/");
   } catch (err) {
-    console.error('Error logging in user', { err });
+    console.error("Error logging in user", { err });
   }
 }
