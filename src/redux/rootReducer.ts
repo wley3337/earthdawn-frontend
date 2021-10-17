@@ -1,10 +1,8 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-const testReducer = (state = "IHopeSo", action: {}) => {
-  return state;
-};
+import { talents } from './Talents/reducer';
 
-const rootReducer = combineReducers({ testReducer });
+const rootReducer = combineReducers({ talents });
 
 export default rootReducer;
 export type AppState = ReturnType<typeof rootReducer>;
