@@ -2,8 +2,6 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from '../../redux/store'
-
-import { Router } from '../Router/Router'
 import {
     createStyles,
     Theme,
@@ -12,7 +10,9 @@ import {
     withStyles,
     WithStyles,
 } from '@material-ui/core'
+
 import { darkpondTheme } from '../../util/theme'
+import AppRouter from '../AppRouter/AppRouter'
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -32,7 +32,7 @@ const App: React.FC<Props> = ({ classes }) => {
                 <ThemeProvider theme={darkpondTheme}>
                     <Typography>
                         <div className={classes.wrapper}>
-                            <Route path="/" component={Router} />
+                            <Route path="/" component={AppRouter} />
                         </div>
                     </Typography>
                 </ThemeProvider>

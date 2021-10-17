@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import * as actions from '../../redux/actions'
-import { AppState } from '../../redux/rootReducer'
-import { Theme } from '@material-ui/core'
 import { createStyles, WithStyles, withStyles } from '@material-ui/styles'
 import { RouteComponentProps } from 'react-router-dom'
 import { History } from 'history'
-import { GetAllTalentsAction, Talent } from '../../redux/Talents/types'
-import TalentDetail from '../../components/TalentDetail/TalentDetail'
+import { Theme } from '@material-ui/core'
+import { connect } from 'react-redux'
+
+import * as actions from '../../../redux/actions'
+import { AppState } from '../../../redux/rootReducer'
+import { GetAllTalentsAction, Talent } from '../../../redux/Talents/types'
+import TalentDetail from '../../../components/EarthDawn/TalentDetail/TalentDetail'
 
 const styles = (theme: Theme) => createStyles({})
 

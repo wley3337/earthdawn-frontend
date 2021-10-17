@@ -1,12 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { getXCSRFToken } from '../../util/cookie'
-import CharacterCreation from '../CharacterCreation/CharacterCreation'
-import Landing from '../Landing/Landing'
 import Login from '../Login/Login'
-import Talents from '../Talents/Talents'
+import Landing from '../AppLanding/AppLanding'
+import { EarthdawnRouter } from '../EarthDawn/Router/Router'
 
-export const Router: React.FC = () => {
+const AppRouter: React.FC = () => {
     const hasXCSRFToken = !!getXCSRFToken()
     return (
         <>
@@ -17,12 +16,9 @@ export const Router: React.FC = () => {
                 <Route exact path="/" component={Login} />
             )}
             <Route exact path="/login" component={Login} />
-            <Route exact path="/talents" component={Talents} />
-            <Route
-                exact
-                path="/character-creation"
-                component={CharacterCreation}
-            />
+            <Route path="/earthdawn" component={EarthdawnRouter} />
         </>
     )
 }
+
+export default AppRouter

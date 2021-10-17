@@ -12,11 +12,15 @@ const styles = (theme: Theme) =>
 
 interface Props extends WithStyles<typeof styles> {}
 
+const earthdawnBase = '/earthdawn'
+
 const Navbar: React.FC<Props> = ({ classes }) => {
     return (
         <nav className={classes.wrapper}>
-            <Link to="/talents">Talents</Link>
-            <Link to="/character-creation">Character Creation</Link>
+            <Link to={earthdawnBase + '/talents'}>Talents</Link>
+            <Link to={earthdawnBase + '/character-creation'}>
+                Character Creation
+            </Link>
         </nav>
     )
 }
