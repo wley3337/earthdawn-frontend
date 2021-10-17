@@ -1,3 +1,3 @@
-export * from "../Login/actions";
-export * from "../Talents/actions";
-export * from "../Logout/actions";
+export * from '../Login/actions'
+export * from '../Talents/actions'
+export * from '../Logout/actions'
