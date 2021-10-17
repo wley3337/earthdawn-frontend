@@ -8,6 +8,7 @@ import {
   createStyles,
   Theme,
   ThemeProvider,
+  Typography,
   withStyles,
   WithStyles,
 } from "@material-ui/core";
@@ -29,9 +30,11 @@ const App: React.FC<Props> = ({ classes }) => {
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={darkpondTheme}>
-          <div className={classes.wrapper}>
-            <Route path="/" component={Router} />
-          </div>
+          <Typography>
+            <div className={classes.wrapper}>
+              <Route path="/" component={Router} />
+            </div>
+          </Typography>
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
